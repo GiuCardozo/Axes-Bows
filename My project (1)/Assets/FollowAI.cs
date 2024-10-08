@@ -7,6 +7,8 @@ public class FollowAI : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float minDistance;
     [SerializeField] private Transform player;
+    [SerializeField] private float timeBetweenAttack; //Tiempo entre ataques
+    [SerializeField] private float timeNextAttack; //tiempo para el siguiente ataque
     private Animator EnemyAnimator;
 
     void Start()
@@ -20,6 +22,11 @@ public class FollowAI : MonoBehaviour
     {
         Animations();
         Follow();
+
+        if(timeNextAttack > 0)
+        {
+            timeNextAttack -= Time.deltaTime;
+        }
         
     }
 
@@ -38,12 +45,21 @@ public class FollowAI : MonoBehaviour
         }
         else
         {
-            Attack();
+            if (timeNextAttack <= 0) //Si el tiempo para el siguiente ataque es menor o igual a cero, ejecutar
+            {
+                Attack();
+            }
         }
     }
 
     private void Attack()
     {
-        Debug.Log("Atacando");
+        EnemyAnimator.Play("Attack");
+        timeNextAttack = timeBetweenAttack; //Reiniciar el contador del tiempo para siguiente ataque
+    }
+
+    private void AttackComplete()
+    {
+        EnemyAnimator.Play("Walk");
     }
 }

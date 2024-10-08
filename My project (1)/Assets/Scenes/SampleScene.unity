@@ -3819,7 +3819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 223982986586477798, guid: 4fea9f3b8efa20c4bbb3a4b565b54562, type: 3}
-  timeBetweenShoots: 2
+  timeBetweenShoots: 1
 --- !u!4 &429836015 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7562943003596211972, guid: fd8119c2c5331584abf319b5622c0b8b, type: 3}
@@ -3925,9 +3925,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.009615385
+    y: 0.013461539
     width: 1
-    height: 0.97972023
+    height: 0.9713287
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -3987,6 +3987,23 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
+--- !u!1 &562328285 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8734287106752805039, guid: 474909c8c1275494cbdc3fa358bcb1d9, type: 3}
+  m_PrefabInstance: {fileID: 1506821632}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &562328291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562328285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 937830699ac518b44a7426fbae86a55c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -4218,6 +4235,8 @@ MonoBehaviour:
   speed: 2
   minDistance: 1
   player: {fileID: 108492240}
+  timeBetweenAttack: 2
+  timeNextAttack: 0
 --- !u!61 &824116222
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4893,6 +4912,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1093010067}
     m_Modifications:
+    - target: {fileID: 35969906023553488, guid: 474909c8c1275494cbdc3fa358bcb1d9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 127818011080724552, guid: 474909c8c1275494cbdc3fa358bcb1d9, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.36
@@ -4945,6 +4968,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7969730357130410307, guid: 474909c8c1275494cbdc3fa358bcb1d9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8734287106752805039, guid: 474909c8c1275494cbdc3fa358bcb1d9, type: 3}
       propertyPath: m_Name
       value: Jugador2
@@ -4956,7 +4983,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8734287106752805039, guid: 474909c8c1275494cbdc3fa358bcb1d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 562328291}
   m_SourcePrefab: {fileID: 100100000, guid: 474909c8c1275494cbdc3fa358bcb1d9, type: 3}
 --- !u!1 &1565315911
 GameObject:
