@@ -5,7 +5,7 @@ using UnityEngine;
 public class VidaJ2 : MonoBehaviour
 {
 
-    public int vidaActual;
+    /*public int vidaActual;
     public int vidaMaxima;
     
     void Start()
@@ -45,5 +45,5 @@ public class VidaJ2 : MonoBehaviour
         {
             vidaActual = vidaTemporal;
         }
-    }
+    }*/
 }
