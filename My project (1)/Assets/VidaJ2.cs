@@ -1,18 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class VidaJ2 : MonoBehaviour
 {
 
-    /*public int vidaActual;
+    public int vidaActual;
     public int vidaMaxima;
+    public UnityEvent<int> cambioVida;
+    public int valorPrueba;
     
     void Start()
     {
         vidaActual = vidaMaxima;
+        cambioVida.Invoke(vidaActual);
     }
 
+    private void Update()
+    {
+        if(Input.GetButtonDown("Fire1")) //Se activa al presionar click 
+        {
+            TomarDaño(valorPrueba); //metodo para hacer daño
+        }
+
+        if(Input.GetButtonDown("Fire2"))
+        {
+            CurarVida(valorPrueba); //metodo para curar vida
+        }
+    }
     
     public void TomarDaño(int cantidadDaño)
     {
@@ -24,8 +40,10 @@ public class VidaJ2 : MonoBehaviour
         }
         else
         {
-            vidaActual = vidaTemportal;
+            vidaActual = vidaTemporal;
         }
+
+        cambioVida.Invoke(vidaActual);
 
         if (vidaActual <= 0)
         {
@@ -45,5 +63,7 @@ public class VidaJ2 : MonoBehaviour
         {
             vidaActual = vidaTemporal;
         }
-    }*/
+
+        cambioVida.Invoke(vidaActual);
+    }
 }
