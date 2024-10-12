@@ -6,6 +6,13 @@ public class EnemyChaseTopDown : MonoBehaviour
     public float detectionRadius = 15f;  // Radio de detección para encontrar al jugador más cercano
 
     private Transform targetPlayer;      // Jugador objetivo
+    private Animator CalaveraAnimator;
+
+
+    void Start()
+    {
+        CalaveraAnimator= GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -48,9 +55,12 @@ public class EnemyChaseTopDown : MonoBehaviour
         // Mover al enemigo en la dirección hacia el jugador
         transform.position += (Vector3)(direction * moveSpeed * Time.deltaTime);
 
+        CalaveraAnimator.SetFloat("Horizontal", (targetPlayer.position.x - direction.x));
+        CalaveraAnimator.SetFloat("Vertical", (targetPlayer.position.y - direction.y));
+
         // Rotar al enemigo para que mire hacia la dirección del jugador (opcional, para rotar el sprite)
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        //transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 
     // Dibujar el radio de detección en la vista de escena (opcional)

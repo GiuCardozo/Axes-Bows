@@ -10,7 +10,7 @@ public class EnemyShooting : MonoBehaviour
     public float detectionRadius = 15f; // Radio de detección del jugador
 
     private Transform targetPlayer; // Jugador objetivo
-    private float timeSinceLastShot = 0f;
+    //private float timeSinceLastShot = 0f;
 
     void Start()
     {
