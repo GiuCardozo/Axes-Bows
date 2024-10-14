@@ -5,14 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class MenuInicial : MonoBehaviour
 {
-    
+    public IdiomaManager idiomaManager; // Referencia al IdiomaManager
+
     public void Jugar()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //Toma la escena actual y le suma uno para pasar a la siguiente
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Cambia a la siguiente escena
     }
 
-    public void Lenguaje()
+    // Métodos para cambiar el idioma
+    public void CambiarIdiomaEspañol()
     {
-        Debug.Log("Cambio de idioma");
+        idiomaManager.CambiarIdioma("es");
+    }
+
+    public void CambiarIdiomaIngles()
+    {
+        idiomaManager.CambiarIdioma("en");
+    }
+
+    public void CambiarIdiomaPortugues()
+    {
+        idiomaManager.CambiarIdioma("pt");
     }
 }
