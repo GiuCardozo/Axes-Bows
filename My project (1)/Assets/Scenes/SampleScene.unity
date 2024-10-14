@@ -4132,7 +4132,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 3, y: -7}
+  m_AnchoredPosition: {x: 3, y: -3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &575571645
@@ -4148,11 +4148,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listaCorazones: []
-  corazonPrefab: {fileID: 7428052916106689218, guid: 825e036d4a7e99448a7b69671de72a05, type: 3}
+  corazonPrefab: {fileID: 7368698347603605749, guid: 2810c1948e2219341958b6238f278264, type: 3}
   vidaJugador: {fileID: 562328291}
   indexActual: 0
-  corazonLleno: {fileID: 21300000, guid: 8367ae3dcc476c4459d2463df7a0c26d, type: 3}
-  corazonVacio: {fileID: 21300000, guid: faf61b899fe3f924fb934eb7005e5abe, type: 3}
+  corazonLleno: {fileID: 21300000, guid: 3b71959bc54f80d498aec0818b2fae34, type: 3}
+  corazonVacio: {fileID: 21300000, guid: 7984c288ee7143d48ab64fd6440a18ca, type: 3}
 --- !u!114 &575571646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4338,7 +4338,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -165, y: 0}
+  m_AnchoredPosition: {x: -167, y: -4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &764961768
@@ -4357,8 +4357,8 @@ MonoBehaviour:
   corazonPrefab: {fileID: 7428052916106689218, guid: 825e036d4a7e99448a7b69671de72a05, type: 3}
   vidaJugador: {fileID: 1695121710}
   indexActual: 0
-  corazonLleno: {fileID: 21300000, guid: 8367ae3dcc476c4459d2463df7a0c26d, type: 3}
-  corazonVacio: {fileID: 21300000, guid: faf61b899fe3f924fb934eb7005e5abe, type: 3}
+  corazonLleno: {fileID: 21300000, guid: baaf795163b11204db1b728af3e6cb85, type: 3}
+  corazonVacio: {fileID: 21300000, guid: 612326e1ea8d91542b3a7b7c6693d678, type: 3}
 --- !u!114 &764961769
 MonoBehaviour:
   m_ObjectHideFlags: 0
