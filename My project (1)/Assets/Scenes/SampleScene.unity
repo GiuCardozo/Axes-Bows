@@ -3725,7 +3725,7 @@ MonoBehaviour:
   gameManager: {fileID: 136628640}
   flashDuration: 0.1
   damageColor: {r: 1, g: 0, b: 0, a: 1}
-  itemDropPrefab: {fileID: 7428052916106689218, guid: 825e036d4a7e99448a7b69671de72a05, type: 3}
+  itemDropPrefab: {fileID: 4394682639688386639, guid: 7575d9a5781c17849a18a1d169155c69, type: 3}
   dropChance: 0.5
 --- !u!95 &351594481
 Animator:
@@ -4605,7 +4605,7 @@ MonoBehaviour:
   gameManager: {fileID: 136628640}
   flashDuration: 0.1
   damageColor: {r: 1, g: 0, b: 0, a: 1}
-  itemDropPrefab: {fileID: 6865037009460470882, guid: f5b3c3bac514d304081c9b1748bd3a66, type: 3}
+  itemDropPrefab: {fileID: 4394682639688386639, guid: 7575d9a5781c17849a18a1d169155c69, type: 3}
   dropChance: 0.5
 --- !u!1 &852900910
 GameObject:
@@ -5046,7 +5046,7 @@ MonoBehaviour:
   gameManager: {fileID: 136628640}
   flashDuration: 0.1
   damageColor: {r: 1, g: 0, b: 0, a: 1}
-  itemDropPrefab: {fileID: 6865037009460470882, guid: f5b3c3bac514d304081c9b1748bd3a66, type: 3}
+  itemDropPrefab: {fileID: 4394682639688386639, guid: 7575d9a5781c17849a18a1d169155c69, type: 3}
   dropChance: 0.5
 --- !u!1 &1314012992
 GameObject:
@@ -5976,7 +5976,7 @@ MonoBehaviour:
   gameManager: {fileID: 136628640}
   flashDuration: 0.1
   damageColor: {r: 1, g: 0, b: 0, a: 1}
-  itemDropPrefab: {fileID: 6865037009460470882, guid: f5b3c3bac514d304081c9b1748bd3a66, type: 3}
+  itemDropPrefab: {fileID: 4394682639688386639, guid: 7575d9a5781c17849a18a1d169155c69, type: 3}
   dropChance: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
