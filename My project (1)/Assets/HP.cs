@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class HP : MonoBehaviour
 {
-    public int Health = 5;
+    /*public int Health = 5;
 
     public int valor = 5;
     public GameManager gameManager;
+    [SerializeField] private GameObject itemDropPrefab; // Prefab del ítem a soltar
+    [SerializeField] private float dropChance = 0.5f; // Probabilidad de soltar el ítem (50%)
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -30,4 +32,3 @@ public class HP : MonoBehaviour
         }*/
 
     }
-}

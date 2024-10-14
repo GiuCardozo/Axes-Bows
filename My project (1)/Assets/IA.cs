@@ -55,12 +55,8 @@ public class EnemyChaseTopDown : MonoBehaviour
         // Mover al enemigo en la dirección hacia el jugador
         transform.position += (Vector3)(direction * moveSpeed * Time.deltaTime);
 
-        CalaveraAnimator.SetFloat("Horizontal", (targetPlayer.position.x - direction.x));
-        CalaveraAnimator.SetFloat("Vertical", (targetPlayer.position.y - direction.y));
-
-        // Rotar al enemigo para que mire hacia la dirección del jugador (opcional, para rotar el sprite)
-        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        //transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        CalaveraAnimator.SetFloat("Horizontal", (targetPlayer.position.x - direction.x)); //Brindar al animator las coordenadas horizontales
+        CalaveraAnimator.SetFloat("Vertical", (targetPlayer.position.y - direction.y)); //Brindar al animator las coordenadas verticales
     }
 
     // Dibujar el radio de detección en la vista de escena (opcional)

@@ -6,28 +6,29 @@ public class FollowAI : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float minDistance;
-    [SerializeField] private Transform player;
-    [SerializeField] private float timeBetweenAttack; //Tiempo entre ataques
-    [SerializeField] private float timeNextAttack; //tiempo para el siguiente ataque
+    [SerializeField] private Transform player; // El objetivo inicial
+    [SerializeField] private List<Transform> possibleTargets; // Lista de otros posibles objetivos
+    [SerializeField] private float timeBetweenAttack;
+    [SerializeField] private float timeNextAttack;
     private Animator EnemyAnimator;
 
     void Start()
     {
         EnemyAnimator = GetComponent<Animator>();
-        
     }
 
-    
     void Update()
     {
-        Animations();
-        Follow();
+        if (player != null) // Solo sigue y ataca si hay un objetivo
+        {
+            Animations();
+            Follow();
+        }
 
-        if(timeNextAttack > 0)
+        if (timeNextAttack > 0)
         {
             timeNextAttack -= Time.deltaTime;
         }
-        
     }
 
     private void Animations()
@@ -39,13 +40,14 @@ public class FollowAI : MonoBehaviour
 
     private void Follow()
     {
-        if (Vector2.Distance(transform.position, player.position) > minDistance) //Si la posicion del enemigo es mayor a la distancia minima, el enemigo se mueve.
+        if (Vector2.Distance(transform.position, player.position) > minDistance)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime); //moverse hacia el jugador
+            // Moverse hacia el jugador u objetivo actual
+            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         }
         else
         {
-            if (timeNextAttack <= 0) //Si el tiempo para el siguiente ataque es menor o igual a cero, ejecutar
+            if (timeNextAttack <= 0)
             {
                 Attack();
             }
@@ -55,11 +57,26 @@ public class FollowAI : MonoBehaviour
     private void Attack()
     {
         EnemyAnimator.Play("Attack");
-        timeNextAttack = timeBetweenAttack; //Reiniciar el contador del tiempo para siguiente ataque
+        timeNextAttack = timeBetweenAttack;
     }
 
     private void AttackComplete()
     {
         EnemyAnimator.Play("Walk");
+    }
+
+    // Este método se debe llamar desde el script del jugador cuando el jugador muera
+    public void OnTargetDeath()
+    {
+        // Si hay otros posibles objetivos en la lista, cambiamos al siguiente
+        if (possibleTargets.Count > 0)
+        {
+            player = possibleTargets[0]; // Cambiamos el objetivo al primer objeto en la lista
+            possibleTargets.RemoveAt(0); // Eliminamos el objetivo de la lista para no repetir
+        }
+        else
+        {
+            player = null; // No hay más objetivos, enemigo se queda sin objetivo
+        }
     }
 }
