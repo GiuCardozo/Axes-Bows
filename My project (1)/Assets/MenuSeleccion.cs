@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuInicial : MonoBehaviour
+public class MenuSeleccion : MonoBehaviour
 {
     public IdiomaManager idiomaManager; // Referencia al IdiomaManager
 
-    public void Jugar()
+    public void Cooperativo()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Cambia a la siguiente escena
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void Versus()
+    {
+        Debug.Log("Iniciar modo VS...");
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
     // Métodos para cambiar el idioma
