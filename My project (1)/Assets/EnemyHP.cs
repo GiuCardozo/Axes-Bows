@@ -28,19 +28,23 @@ public class EnemyHP : MonoBehaviour
         {
             HP--;
             StartCoroutine(FlashDamageEffect());
+            gameManager.SumarBarbaro(valor); //Llama a la función de sumar puntos a barbaro
             if(HP <= 0)
             {
                 Die();
             }
-        }/*else if (collision.tag == "Projectile")
+        }
+
+        if (collision.tag == "Projectile") //para sumar puntos al arquero
         {
             HP--;
-            if(HP<= 0)
+            StartCoroutine(FlashDamageEffect());
+            gameManager.SumarArquero(valor); //Llama a la función de sumar puntos a arquero
+            if (HP <= 0)
             {
-                (hacer el Sumar Puntos de un segundo contador para el jugador 2)
-                Destroy(gameObject);
+                Die();
             }
-        }*/
+        }
 
     }
 
