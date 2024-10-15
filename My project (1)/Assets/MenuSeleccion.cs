@@ -15,7 +15,7 @@ public class MenuSeleccion : MonoBehaviour
     public void Versus()
     {
         Debug.Log("Iniciar modo VS...");
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
     // Métodos para cambiar el idioma
