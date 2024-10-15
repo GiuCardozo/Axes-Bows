@@ -1,19 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Follow : MonoBehaviour
+public class EnemyChaseTopDown : MonoBehaviour
 {
     public float moveSpeed = 3f;         // Velocidad de movimiento del enemigo
     public float detectionRadius = 15f;  // Radio de detección para encontrar al jugador más cercano
 
     private Transform targetPlayer;      // Jugador objetivo
-    private Animator SlimeAnimator;
+    private Animator CalaveraAnimator;
 
 
     void Start()
     {
-        SlimeAnimator = GetComponent<Animator>();
+        CalaveraAnimator= GetComponent<Animator>();
     }
 
     void Update()
@@ -57,9 +55,8 @@ public class Follow : MonoBehaviour
         // Mover al enemigo en la dirección hacia el jugador
         transform.position += (Vector3)(direction * moveSpeed * Time.deltaTime);
 
-        SlimeAnimator.SetBool("Moving", true);
-        SlimeAnimator.SetFloat("Horizontal", (targetPlayer.position.x - direction.x)); //Brindar al animator las coordenadas horizontales
-        SlimeAnimator.SetFloat("Vertical", (targetPlayer.position.y - direction.y)); //Brindar al animator las coordenadas verticales
+        CalaveraAnimator.SetFloat("Horizontal", (targetPlayer.position.x - direction.x)); //Brindar al animator las coordenadas horizontales
+        CalaveraAnimator.SetFloat("Vertical", (targetPlayer.position.y - direction.y)); //Brindar al animator las coordenadas verticales
     }
 
     // Dibujar el radio de detección en la vista de escena (opcional)
@@ -69,3 +66,4 @@ public class Follow : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
 }
+

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BAtaqueAbajo
+  m_Name: EsqueletoAtaqueAbajo
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -31,7 +31,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.083333336
+        time: 0.25
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -40,8 +40,8 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.16666667
-        value: 1
+        time: 0.33333334
+        value: 0
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -52,7 +52,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: HitboxAbajo
+    path: GolpeAbajo
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -60,11 +60,15 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -605486145, guid: e149b333e4c5a704a9becf11036ee851, type: 3}
+      value: {fileID: -2101687575, guid: bfafa01760583374f8468e77c122aa9a, type: 3}
     - time: 0.083333336
-      value: {fileID: 1550234077, guid: e149b333e4c5a704a9becf11036ee851, type: 3}
+      value: {fileID: 952034854, guid: bfafa01760583374f8468e77c122aa9a, type: 3}
     - time: 0.16666667
-      value: {fileID: -2133548203, guid: e149b333e4c5a704a9becf11036ee851, type: 3}
+      value: {fileID: 335150913, guid: bfafa01760583374f8468e77c122aa9a, type: 3}
+    - time: 0.25
+      value: {fileID: 1705710392, guid: bfafa01760583374f8468e77c122aa9a, type: 3}
+    - time: 0.33333334
+      value: {fileID: 817163662, guid: bfafa01760583374f8468e77c122aa9a, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -78,7 +82,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 1883697345
+      path: 3499479406
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -96,20 +100,22 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -605486145, guid: e149b333e4c5a704a9becf11036ee851, type: 3}
-    - {fileID: 1550234077, guid: e149b333e4c5a704a9becf11036ee851, type: 3}
-    - {fileID: -2133548203, guid: e149b333e4c5a704a9becf11036ee851, type: 3}
+    - {fileID: -2101687575, guid: bfafa01760583374f8468e77c122aa9a, type: 3}
+    - {fileID: 952034854, guid: bfafa01760583374f8468e77c122aa9a, type: 3}
+    - {fileID: 335150913, guid: bfafa01760583374f8468e77c122aa9a, type: 3}
+    - {fileID: 1705710392, guid: bfafa01760583374f8468e77c122aa9a, type: 3}
+    - {fileID: 817163662, guid: bfafa01760583374f8468e77c122aa9a, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.25
+    m_StopTime: 0.4166667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -134,7 +140,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.083333336
+        time: 0.25
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -143,8 +149,8 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.16666667
-        value: 1
+        time: 0.33333334
+        value: 0
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -155,7 +161,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: HitboxAbajo
+    path: GolpeAbajo
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -163,8 +169,8 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.25
-    functionName: EndAttack
+  - time: 0.41666666
+    functionName: AttackComplete
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

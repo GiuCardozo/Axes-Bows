@@ -7,6 +7,10 @@ TagManager:
   - Enemy
   - Weapon
   - Player2
+  - Projectile
+  - Skeleton
+  - Heal
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX
@@ -17,8 +21,8 @@ TagManager:
   - Arrow
   - Enemy
   - Player2
-  - 
-  - 
+  - EnemyArrow
+  - Items
   - 
   - 
   - 
