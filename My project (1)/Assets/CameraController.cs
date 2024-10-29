@@ -19,37 +19,53 @@ public class CameraController : MonoBehaviour
     public float movementTime = 0.5f;
     public bool isMoving;
 
-    
-    void Start()
-    {
-        //player = FindObjectOfType<PJ1Movement>().transform;
-    }
-
-    
     void Update()
     {
         if (!isMoving)
         {
-            if (player.position.y - transform.position.y >= yDistance && player2.position.y - transform.position.y >= yDistance) //si ambos jugadores se encuentran en determinada posicion, la cámara se desplaza
+            // Verificar si ambos jugadores están activos
+            bool isPlayerActive = player != null && player.gameObject.activeSelf;
+            bool isPlayer2Active = player2 != null && player2.gameObject.activeSelf;
+
+            if (isPlayerActive && isPlayer2Active)
             {
-                cameraDestination += new Vector3(0, yMovement, 0);
-                StartCoroutine(MoveCamera());
+                // Movimiento de la cámara cuando ambos jugadores están vivos
+                ControlCameraMovement(player.position, player2.position);
             }
-            else if (transform.position.y - player.position.y >= yDistance && transform.position.y - player2.position.y >= yDistance)
+            else if (isPlayerActive)
             {
-                cameraDestination -= new Vector3(0, yMovement, 0);
-                StartCoroutine(MoveCamera());
+                // Movimiento de la cámara cuando solo player está vivo
+                ControlCameraMovement(player.position, player.position);
             }
-            else if (player.position.x - transform.position.x >= xDistance && player2.position.x - transform.position.x >= xDistance)
+            else if (isPlayer2Active)
             {
-                cameraDestination += new Vector3(xMovement, 0, 0);
-                StartCoroutine(MoveCamera());
+                // Movimiento de la cámara cuando solo player2 está vivo
+                ControlCameraMovement(player2.position, player2.position);
             }
-            else if (transform.position.x - player.position.x >= xDistance && transform.position.x - player2.position.x >= xDistance)
-            {
-                cameraDestination -= new Vector3(xMovement, 0, 0);
-                StartCoroutine(MoveCamera());
-            }
+        }
+    }
+
+    void ControlCameraMovement(Vector3 pos1, Vector3 pos2)
+    {
+        if (pos1.y - transform.position.y >= yDistance && pos2.y - transform.position.y >= yDistance)
+        {
+            cameraDestination += new Vector3(0, yMovement, 0);
+            StartCoroutine(MoveCamera());
+        }
+        else if (transform.position.y - pos1.y >= yDistance && transform.position.y - pos2.y >= yDistance)
+        {
+            cameraDestination -= new Vector3(0, yMovement, 0);
+            StartCoroutine(MoveCamera());
+        }
+        else if (pos1.x - transform.position.x >= xDistance && pos2.x - transform.position.x >= xDistance)
+        {
+            cameraDestination += new Vector3(xMovement, 0, 0);
+            StartCoroutine(MoveCamera());
+        }
+        else if (transform.position.x - pos1.x >= xDistance && transform.position.x - pos2.x >= xDistance)
+        {
+            cameraDestination -= new Vector3(xMovement, 0, 0);
+            StartCoroutine(MoveCamera());
         }
     }
 

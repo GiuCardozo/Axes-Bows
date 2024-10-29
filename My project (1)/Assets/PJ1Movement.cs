@@ -55,7 +55,7 @@ public class MovimientoTopDown : MonoBehaviour
     {
         isAttacking = false;
         player1Animator.Play("Walk");
-        Speed = 3;
+        Speed = 6;
     }
 
 }

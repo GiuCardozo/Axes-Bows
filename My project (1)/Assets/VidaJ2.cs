@@ -25,7 +25,7 @@ public class VidaJ2 : MonoBehaviour
         cambioVida.Invoke(vidaActual);
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color; // Guardamos el color original del jugador
-        //enemy = GameObject.FindGameObjectWithTag("Skeleton").GetComponent<FollowAI>();
+        enemy = GameObject.FindGameObjectWithTag("Skeleton").GetComponent<FollowAI>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
