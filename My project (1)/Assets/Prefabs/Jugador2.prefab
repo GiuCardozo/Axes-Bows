@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8070552427572273660}
   - component: {fileID: 2410121106897671287}
-  m_Layer: 8
+  m_Layer: 3
   m_Name: Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,9 +98,10 @@ GameObject:
   - component: {fileID: 3618016635385668794}
   - component: {fileID: 5216390657017922116}
   - component: {fileID: 7535138445553166012}
-  m_Layer: 8
+  - component: {fileID: 9159691061589003211}
+  m_Layer: 3
   m_Name: Jugador2
-  m_TagString: Player2
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,7 +116,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.73, y: -3.63, z: 0}
-  m_LocalScale: {x: 0.36393505, y: 0.3512475, z: 1}
+  m_LocalScale: {x: 0.36, y: 0.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8070552427572273660}
@@ -278,7 +279,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60f48bd45f1a6e34598f5d74f29dc6bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 3
+  Speed: 5
   inputNameHorizontal: Horizontal2
   inputNameVertical: Vertical2
   arrow: {fileID: 1866955104092119802, guid: 953f417107f250e49967eeb4a8a34c8d, type: 3}
+--- !u!114 &9159691061589003211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8734287106752805039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 937830699ac518b44a7426fbae86a55c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidaActual: 3
+  vidaMaxima: 3
+  cambioVida:
+    m_PersistentCalls:
+      m_Calls: []
+  valorPrueba: 1
+  flashDuration: 0.1
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  healColor: {r: 0, g: 1, b: 0, a: 1}
+  invincibilityDuration: 2
