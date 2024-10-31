@@ -21,13 +21,13 @@ public class WinSceneManager : MonoBehaviour
         if (puntosArquero > puntosBarbaro)
         {
             Arquero.SetActive(true);
-            puntosArqueroText.text = "Puntos: " + puntosArquero;
+            puntosArqueroText.text = "Points: " + puntosArquero;
             Apoints.SetActive(true);
         }
         else
         {
             Barbaro.SetActive(true);
-            puntosBarbaroText.text = "Puntos: " + puntosBarbaro;
+            puntosBarbaroText.text = "Points: " + puntosBarbaro;
             Bpoints.SetActive(true);
         }
     }
