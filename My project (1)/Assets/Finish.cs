@@ -1,10 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Bandera : MonoBehaviour
+public class Finish : MonoBehaviour
 {
     private bool banderaActivada = false;
-
     public GameManager gameManager;
 
     void Update()
@@ -46,8 +45,7 @@ public class Bandera : MonoBehaviour
         {
             // Cambiar a la siguiente escena (asegúrate de agregar la escena en el Build Settings de Unity)
             gameManager.GuardarPuntos();
-            SceneManager.LoadScene("CuevaModoCoop");
+            SceneManager.LoadScene("Win"); //Cambio de escena (Poner el nombre de la escena de Game Over
         }
     }
 }
-

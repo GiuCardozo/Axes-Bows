@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CuevaModoCoop.unity
     guid: f36896f5b8c80c94ab8e425e01a9e940
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: f5bd0f2f005878c44bc28fdfa8245853
   m_configObjects: {}
