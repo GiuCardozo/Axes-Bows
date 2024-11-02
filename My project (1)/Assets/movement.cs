@@ -9,7 +9,7 @@ public class movement : MonoBehaviour
     private Rigidbody2D rb2D;
 
     [SerializeField] private KeyCode jumpKey = KeyCode.Return; // Tecla para el salto
-    [SerializeField] private KeyCode moveLeftKey = KeyCode.A; // Tecla para moverse a la izquierda
+    [SerializeField] private KeyCode moveLeftKey = KeyCode.A;  // Tecla para moverse a la izquierda
     [SerializeField] private KeyCode moveRightKey = KeyCode.D; // Tecla para moverse a la derecha
 
     private bool isGrounded;
@@ -17,10 +17,12 @@ public class movement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundCheckRadius = 0.1f;
     [SerializeField] private LayerMask groundLayer;
+    private Animator playerAnimator;
 
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        playerAnimator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -42,11 +44,19 @@ public class movement : MonoBehaviour
         if (Input.GetKey(moveLeftKey))
         {
             moveInput = Vector2.left;
+            playerAnimator.SetBool("isWalking", true); // Activa la animación de caminar
+            transform.localScale = new Vector3(-0.28f, 0.26f, 1); // Escala para mirar a la izquierda
         }
         // Movimiento a la derecha
         else if (Input.GetKey(moveRightKey))
         {
             moveInput = Vector2.right;
+            playerAnimator.SetBool("isWalking", true); // Activa la animación de caminar
+            transform.localScale = new Vector3(0.28f, 0.26f, 1); // Escala para mirar a la derecha
+        }
+        else
+        {
+            playerAnimator.SetBool("isWalking", false); // Detiene la animación de caminar
         }
 
         rb2D.velocity = new Vector2(moveInput.x * Speed, rb2D.velocity.y);
@@ -69,5 +79,7 @@ public class movement : MonoBehaviour
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
     }
 }
+
+
 
 

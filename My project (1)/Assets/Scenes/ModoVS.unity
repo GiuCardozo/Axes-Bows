@@ -768,6 +768,7 @@ GameObject:
   - component: {fileID: 941845473}
   - component: {fileID: 941845476}
   - component: {fileID: 941845477}
+  - component: {fileID: 941845478}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player2
@@ -882,7 +883,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.3789, y: -3.35, z: 0}
-  m_LocalScale: {x: 0.29418197, y: 0.29143065, z: 1}
+  m_LocalScale: {x: 0.28, y: 0.27, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2129395999}
@@ -902,9 +903,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 5
   jumpForce: 7
-  jumpKey: 273
-  moveLeftKey: 276
-  moveRightKey: 275
+  jumpKey: 119
+  moveLeftKey: 97
+  moveRightKey: 100
   groundCheck: {fileID: 2129395999}
   groundCheckRadius: 0.61
   groundLayer:
@@ -937,6 +938,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &941845478
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941845472}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d83e5f8a26c0ad54db1db38ec5c49877, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &952016931
 GameObject:
   m_ObjectHideFlags: 0
@@ -1232,6 +1254,7 @@ GameObject:
   - component: {fileID: 1030895132}
   - component: {fileID: 1030895135}
   - component: {fileID: 1030895136}
+  - component: {fileID: 1030895137}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -1346,7 +1369,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.1, y: -3.4, z: 0}
-  m_LocalScale: {x: 0.27819794, y: 0.2637518, z: 1}
+  m_LocalScale: {x: 0.28, y: 0.27, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1304657450}
@@ -1393,14 +1416,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 5
   jumpForce: 7
-  jumpKey: 32
-  moveLeftKey: 97
-  moveRightKey: 100
+  jumpKey: 273
+  moveLeftKey: 276
+  moveRightKey: 275
   groundCheck: {fileID: 1304657450}
   groundCheckRadius: 0.61
   groundLayer:
     serializedVersion: 2
     m_Bits: 2048
+--- !u!95 &1030895137
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030895131}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6634dc96ef56bfd408f9da09f51496cf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1045346945
 GameObject:
   m_ObjectHideFlags: 0

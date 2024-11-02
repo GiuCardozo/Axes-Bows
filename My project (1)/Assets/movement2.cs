@@ -17,10 +17,12 @@ public class movement2 : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundCheckRadius = 0.1f;
     [SerializeField] private LayerMask groundLayer;
+    private Animator player2Animator;
 
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        player2Animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -42,11 +44,19 @@ public class movement2 : MonoBehaviour
         if (Input.GetKey(moveLeftKey))
         {
             moveInput = Vector2.left;
+            player2Animator.SetBool("isWalking", true); // Activa la animación de caminar
+            transform.localScale = new Vector3(-0.28f, 0.26f, 1); // Escala para mirar a la izquierda
         }
         // Movimiento a la derecha
         else if (Input.GetKey(moveRightKey))
         {
             moveInput = Vector2.right;
+            player2Animator.SetBool("isWalking", true); // Activa la animación de caminar
+            transform.localScale = new Vector3(0.28f, 0.26f, 1); // Escala para mirar a la derecha
+        }
+        else
+        {
+            player2Animator.SetBool("isWalking", false); // Detiene la animación de caminar
         }
 
         rb2D.velocity = new Vector2(moveInput.x * Speed, rb2D.velocity.y);
