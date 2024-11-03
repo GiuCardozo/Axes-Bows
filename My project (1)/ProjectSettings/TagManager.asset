@@ -11,6 +11,7 @@ TagManager:
   - Skeleton
   - Heal
   - EnemyProjectile
+  - Suelo
   layers:
   - Default
   - TransparentFX
