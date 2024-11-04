@@ -112,6 +112,12 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.DeleteKey("SesionIniciada");
         PlayerPrefs.Save();
     }
+
+    public void EndVS()
+    {
+        GuardarPuntos();
+        SceneManager.LoadScene("VSWin");
+    }
 }
 
 

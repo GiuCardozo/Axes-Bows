@@ -21,6 +21,8 @@ public class Timer : MonoBehaviour
     public TimerFormats format;
     private Dictionary<TimerFormats, string> timeFormats = new Dictionary<TimerFormats, string>();
 
+    public GameManager gameManager;
+
     void Start()
     {
         timeFormats.Add(TimerFormats.Whole, "0");
@@ -40,6 +42,11 @@ public class Timer : MonoBehaviour
             enabled = false;
         }
         SetTimerText();
+
+        if(currentTime <= 0)
+        {
+            gameManager.EndVS();
+        }
     }
 
     private void SetTimerText()

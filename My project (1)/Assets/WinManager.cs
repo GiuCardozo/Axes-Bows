@@ -41,6 +41,7 @@ public class WinSceneManager : MonoBehaviour
         PlayerPrefs.Save(); // Asegura que los cambios se guarden inmediatamente
 
         // Cargar la escena "MenuInicial"
+
         SceneManager.LoadScene("MenuInicial");
     }
 }
