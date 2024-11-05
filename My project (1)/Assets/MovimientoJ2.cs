@@ -24,13 +24,9 @@ public class MovimientoJ2 : MonoBehaviour
 
     private void Update()
     {
-        if (!player2Animator.GetBool("isAttacking"))
-        {
-            Movement();
-        }
+        Movement();
         Inputs();
     }
-
 
     private void FixedUpdate()
     {
