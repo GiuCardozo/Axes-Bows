@@ -5,40 +5,81 @@ using UnityEngine;
 public class movement : MonoBehaviour
 {
     [SerializeField] private float Speed;
-    private Vector2 moveInput;
-    private Vector2 lastMoveDirection; // Para almacenar la última dirección válida
+    [SerializeField] private float jumpForce;
     private Rigidbody2D rb2D;
-    [SerializeField] private string inputNameHorizontal;
-    [SerializeField] private string inputNameVertical;
-    private float inputHorizontal;
-    private float inputVertical;
+
+    [SerializeField] private KeyCode jumpKey = KeyCode.Return; // Tecla para el salto
+    [SerializeField] private KeyCode moveLeftKey = KeyCode.A;  // Tecla para moverse a la izquierda
+    [SerializeField] private KeyCode moveRightKey = KeyCode.D; // Tecla para moverse a la derecha
+
+    private bool isGrounded;
+
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float groundCheckRadius = 0.1f;
+    [SerializeField] private LayerMask groundLayer;
+    private Animator playerAnimator;
 
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
-        //lastMoveDirection = Vector2.down; // Dirección por defecto hacia abajo
+        playerAnimator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        Movement();
-    }
+        CheckGround();
+        Move();
 
-    private void FixedUpdate()
-    {
-        rb2D.MovePosition(rb2D.position + moveInput * Speed * Time.fixedDeltaTime);
-    }
-
-    private void Movement()
-    {
-        inputHorizontal = Input.GetAxisRaw(inputNameHorizontal);
-        inputVertical = Input.GetAxisRaw(inputNameVertical);
-        moveInput = new Vector2(inputHorizontal, inputVertical).normalized;
-
-        if (moveInput != Vector2.zero)
+        if (Input.GetKeyDown(jumpKey) && isGrounded)
         {
-            lastMoveDirection = moveInput; // Actualiza la última dirección válida solo si se está moviendo
+            Jump();
+        }
+    }
+
+    private void Move()
+    {
+        Vector2 moveInput = Vector2.zero;
+
+        // Movimiento a la izquierda
+        if (Input.GetKey(moveLeftKey))
+        {
+            moveInput = Vector2.left;
+            playerAnimator.SetBool("isWalking", true); // Activa la animación de caminar
+            transform.localScale = new Vector3(-0.28f, 0.26f, 1); // Escala para mirar a la izquierda
+        }
+        // Movimiento a la derecha
+        else if (Input.GetKey(moveRightKey))
+        {
+            moveInput = Vector2.right;
+            playerAnimator.SetBool("isWalking", true); // Activa la animación de caminar
+            transform.localScale = new Vector3(0.28f, 0.26f, 1); // Escala para mirar a la derecha
+        }
+        else
+        {
+            playerAnimator.SetBool("isWalking", false); // Detiene la animación de caminar
         }
 
+        rb2D.velocity = new Vector2(moveInput.x * Speed, rb2D.velocity.y);
+    }
+
+    private void Jump()
+    {
+        rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+    }
+
+    private void CheckGround()
+    {
+        // Verifica si el personaje está en el suelo usando una detección en círculo
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
     }
 }
+
+
+
+

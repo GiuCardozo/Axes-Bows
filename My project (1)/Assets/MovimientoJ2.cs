@@ -99,6 +99,6 @@ public class MovimientoJ2 : MonoBehaviour
     private void EndAttack()
     {
         player2Animator.SetBool("isAttacking", false);
-        Speed = 3;
+        Speed = 5;
     }
 }

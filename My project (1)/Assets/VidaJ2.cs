@@ -19,6 +19,9 @@ public class VidaJ2 : MonoBehaviour
     private bool isInvincible = false; // Verifica si el jugador es invulnerable
     FollowAI enemy;
 
+    // Referencia al GameManager
+    public GameManager gameManager;
+
     void Start()
     {
         vidaActual = vidaMaxima;
@@ -65,6 +68,13 @@ public class VidaJ2 : MonoBehaviour
 
         if (vidaActual <= 0)
         {
+            // Notifica al GameManager que el jugador ha muerto
+            if (gameManager != null)
+            {
+                gameManager.Player2Died();
+                Debug.Log("Player2 muerto");
+            }
+
             enemy.OnTargetDeath();
             Destroy(gameObject);
         }

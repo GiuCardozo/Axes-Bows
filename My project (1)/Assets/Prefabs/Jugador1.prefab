@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: 3502002445958424760}
   - component: {fileID: 1739113461294733955}
   - component: {fileID: 4053195048870233862}
+  - component: {fileID: 2977375395772243128}
   m_Layer: 3
   m_Name: Jugador1
   m_TagString: Player
@@ -262,8 +263,8 @@ Transform:
   m_GameObject: {fileID: 6800510244340409142}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.92, y: -3.83, z: 0}
-  m_LocalScale: {x: 0.36393505, y: 0.3512475, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.36, y: 0.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3880218208002530348}
@@ -429,7 +430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4774ba7c339ac3c4caf2e5629cd7fa20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 3
+  Speed: 6
   inputNameHorizontal: Horizontal
   inputNameVertical: Vertical
 --- !u!114 &4053195048870233862
@@ -444,6 +445,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 894e07fbb1e77b246809eeab4f11c673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2977375395772243128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6800510244340409142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 264daa958aa903b4fb345af8d102a5e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidaActual: 5
+  vidaMaxima: 5
+  cambioVida:
+    m_PersistentCalls:
+      m_Calls: []
+  valorPrueba: 1
+  flashDuration: 0.1
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  healColor: {r: 0, g: 1, b: 0, a: 1}
+  invincibilityDuration: 2
 --- !u!1 &8232828911048421454
 GameObject:
   m_ObjectHideFlags: 0

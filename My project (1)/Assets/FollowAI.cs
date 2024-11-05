@@ -24,6 +24,11 @@ public class FollowAI : MonoBehaviour
             Animations();
             Follow();
         }
+        else
+        {
+            // Cambiar a animación "Idle" si no hay objetivos
+            EnemyAnimator.SetBool("Moving", false);
+        }
 
         if (timeNextAttack > 0)
         {
@@ -33,6 +38,8 @@ public class FollowAI : MonoBehaviour
 
     private void Animations()
     {
+        if (player == null) return; // Evita errores si el objetivo es nulo
+
         EnemyAnimator.SetBool("Moving", true);
         EnemyAnimator.SetFloat("Horizontal", (player.position.x - transform.position.x));
         EnemyAnimator.SetFloat("Vertical", (player.position.y - transform.position.y));
@@ -40,6 +47,8 @@ public class FollowAI : MonoBehaviour
 
     private void Follow()
     {
+        if (player == null) return; // Evita errores si el objetivo es nulo
+
         if (Vector2.Distance(transform.position, player.position) > minDistance)
         {
             // Moverse hacia el jugador u objetivo actual
@@ -68,15 +77,16 @@ public class FollowAI : MonoBehaviour
     // Este método se debe llamar desde el script del jugador cuando el jugador muera
     public void OnTargetDeath()
     {
-        // Si hay otros posibles objetivos en la lista, cambiamos al siguiente
         if (possibleTargets.Count > 0)
         {
-            player = possibleTargets[0]; // Cambiamos el objetivo al primer objeto en la lista
-            possibleTargets.RemoveAt(0); // Eliminamos el objetivo de la lista para no repetir
+            player = possibleTargets[0];
+            possibleTargets.RemoveAt(0);
+            Debug.Log("Objetivo cambiado al siguiente jugador.");
         }
         else
         {
-            player = null; // No hay más objetivos, enemigo se queda sin objetivo
+            player = null; // No hay más objetivos
+            Debug.Log("Sin objetivos restantes.");
         }
     }
 }

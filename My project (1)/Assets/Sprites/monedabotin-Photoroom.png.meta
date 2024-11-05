@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8abf6853094bcba48b9ca74dea6ea2c4
+guid: 7da919b04ce95c7418d1dba983b52fd5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,70 +108,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: BarbaroAtacandoIzquierda_0
-      rect:
-        serializedVersion: 2
-        x: 105
-        y: 90
-        width: 360
-        height: 390
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 84e79e3a05527614195ab9132b491b64
-      internalID: -716830137
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BarbaroAtacandoIzquierda_1
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 90
-        width: 360
-        height: 390
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 41e85db61d822b64780ed6aa4350191c
-      internalID: 1883224042
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BarbaroAtacandoIzquierda_2
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 90
-        width: 360
-        height: 390
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 627228b86cd415340b6d683d737799ee
-      internalID: 1688431215
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -182,10 +119,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      BarbaroAtacandoIzquierda_0: -716830137
-      BarbaroAtacandoIzquierda_1: 1883224042
-      BarbaroAtacandoIzquierda_2: 1688431215
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
