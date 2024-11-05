@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7767062914511360092}
   - component: {fileID: 4403573208286160745}
   - component: {fileID: 5482773676469132786}
+  - component: {fileID: -7397127910933008199}
   m_Layer: 9
   m_Name: FlechaEvil 1
   m_TagString: Enemy
@@ -173,3 +174,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   player: {fileID: 127818011080724552, guid: 474909c8c1275494cbdc3fa358bcb1d9, type: 3}
+--- !u!114 &-7397127910933008199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8102104249554094891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdaa4e17fb885fc4186082685436e763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
