@@ -13,37 +13,35 @@ public class GameManager : MonoBehaviour
     private bool isPlayerDead = false;
     private bool isPlayer2Dead = false;
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     private void Start()
     {
         gameOverMenu.SetActive(false);
+    }
 
-        // Verificar si es la primera ejecución de la sesión
-        if (!PlayerPrefs.HasKey("SesionIniciada"))
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Verificar si la escena es "Modo Coop" o "ModoVS"
+        if (scene.name == "Modo Coop" || scene.name == "ModoVS")
         {
-            // Establecer la bandera de sesión iniciada
-            PlayerPrefs.SetInt("SesionIniciada", 1);
-            PlayerPrefs.Save();
-
-            // Restablecer los puntos para comenzar desde cero
-            ResetearPuntos();
-        }
-        else
-        {
-            // Cargar los puntos desde PlayerPrefs en caso de que no sea la primera sesión
-            puntosTotales = PlayerPrefs.GetInt("PuntosTotales", 0);
-            puntosArquero = PlayerPrefs.GetInt("PuntosArquero", 0);
-            puntosBarbaro = PlayerPrefs.GetInt("PuntosBarbaro", 0);
+            ResetearPuntos(); // Reiniciar los puntos al cargar "Modo Coop" o "ModoVS"
         }
     }
 
     private void ResetearPuntos()
     {
-        // Reiniciar los puntos al inicio de la sesión
         puntosTotales = 0;
         puntosArquero = 0;
         puntosBarbaro = 0;
-
-        // Opcional: guardar el valor inicial en PlayerPrefs
         GuardarPuntos();
     }
 
@@ -64,7 +62,6 @@ public class GameManager : MonoBehaviour
 
     public void GuardarPuntos()
     {
-        // Guardar los puntos en PlayerPrefs
         PlayerPrefs.SetInt("PuntosTotales", puntosTotales);
         PlayerPrefs.SetInt("PuntosArquero", puntosArquero);
         PlayerPrefs.SetInt("PuntosBarbaro", puntosBarbaro);
@@ -108,7 +105,6 @@ public class GameManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        // Elimina la clave de sesión al cerrar el juego
         PlayerPrefs.DeleteKey("SesionIniciada");
         PlayerPrefs.Save();
     }
@@ -119,6 +115,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("VSWin");
     }
 }
+
 
 
 
