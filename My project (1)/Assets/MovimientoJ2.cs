@@ -6,7 +6,7 @@ public class MovimientoJ2 : MonoBehaviour
 {
     [SerializeField] private float Speed;
     private Vector2 moveInput;
-    private Vector2 lastMoveDirection; // Para almacenar la última dirección válida
+    private Vector2 lastMoveDirection;
     private Rigidbody2D rb2D;
     private Animator player2Animator;
     [SerializeField] private string inputNameHorizontal;
@@ -15,11 +15,14 @@ public class MovimientoJ2 : MonoBehaviour
     private float inputVertical;
     public GameObject arrow;
 
+    [SerializeField] private float fireCooldown = 1f; // Tiempo de espera entre disparos en segundos
+    private float nextFireTime = 0f; // Tiempo en el que se permitirá el siguiente disparo
+
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
         player2Animator = GetComponent<Animator>();
-        lastMoveDirection = Vector2.down; // Dirección por defecto hacia abajo
+        lastMoveDirection = Vector2.down;
     }
 
     private void Update()
@@ -41,7 +44,7 @@ public class MovimientoJ2 : MonoBehaviour
 
         if (moveInput != Vector2.zero)
         {
-            lastMoveDirection = moveInput; // Actualiza la última dirección válida solo si se está moviendo
+            lastMoveDirection = moveInput;
         }
 
         player2Animator.SetFloat("Horizontal", inputHorizontal);
@@ -51,10 +54,14 @@ public class MovimientoJ2 : MonoBehaviour
 
     private void Inputs()
     {
-        if (Input.GetKeyDown(KeyCode.J))
+        // Verifica si el cooldown ha terminado antes de permitir otro disparo
+        if (Input.GetKeyDown(KeyCode.T) && Time.time >= nextFireTime)
         {
             Shoot();
             Speed = 0;
+
+            // Establece el tiempo para el siguiente disparo
+            nextFireTime = Time.time + fireCooldown;
         }
     }
 
@@ -62,17 +69,16 @@ public class MovimientoJ2 : MonoBehaviour
     {
         player2Animator.SetBool("isAttacking", true);
         AttackAnimDirection();
-        //Shooting(); // Asegúrate de llamar a Shooting cuando dispares
     }
 
     private void Shooting()
     {
         var obj = Instantiate(arrow);
-        Vector2 direction = lastMoveDirection; // Usa la última dirección válida para disparar
+        Vector2 direction = lastMoveDirection;
 
         obj.transform.eulerAngles = new Vector3(0, 0, Vector2.SignedAngle(new Vector2(direction.x, -direction.y), Vector2.right));
         obj.transform.position = transform.position + new Vector3(direction.x, 0, direction.y) * 0.2f;
-        obj.GetComponent<Rigidbody2D>().velocity = direction * 10; // Velocidad de la flecha
+        obj.GetComponent<Rigidbody2D>().velocity = direction * 10;
     }
 
     private void AttackAnimDirection()
@@ -102,3 +108,4 @@ public class MovimientoJ2 : MonoBehaviour
         Speed = 5;
     }
 }
+

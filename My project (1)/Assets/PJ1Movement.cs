@@ -40,7 +40,7 @@ public class MovimientoTopDown : MonoBehaviour
         player1Animator.SetFloat("Vertical", inputVertical);
         player1Animator.SetFloat("Speed", moveInput.magnitude);
 
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             player1Animator.Play("Attack");
             isAttacking = true;
