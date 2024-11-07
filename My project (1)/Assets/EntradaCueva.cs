@@ -1,11 +1,19 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Bandera : MonoBehaviour
 {
     private bool banderaActivada = false;
 
     public GameManager gameManager;
+    public TextMeshProUGUI avisoText; // Referencia al TextMeshProUGUI para el aviso
+
+    void Start()
+    {
+        // Asegúrate de que el aviso esté vacío al comenzar
+        avisoText.text = "";
+    }
 
     void Update()
     {
@@ -19,7 +27,6 @@ public class Bandera : MonoBehaviour
     // Método para verificar si todos los enemigos están derrotados
     private bool TodosLosEnemigosDerrotados()
     {
-        // Busca todos los objetos con el tag "Enemigo" y verifica si hay alguno activo
         GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemigo in enemigos)
         {
@@ -35,19 +42,36 @@ public class Bandera : MonoBehaviour
     private void ActivarBandera()
     {
         banderaActivada = true;
-        // Aquí podrías agregar efectos visuales o de sonido para indicar que la bandera está activada
-        Debug.Log("¡La entrada está activada! Puedes avanzar");
+        avisoText.text = "¡Ya puedes entrar a la cueva!";
+        Invoke("OcultarAviso", 2f);
     }
 
     // Detectar colisión con el jugador
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (banderaActivada && other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            // Cambiar a la siguiente escena (asegúrate de agregar la escena en el Build Settings de Unity)
-            gameManager.GuardarPuntos();
-            SceneManager.LoadScene("CuevaModoCoop");
+            if (banderaActivada)
+            {
+                // Si la bandera está activada, cambia a la siguiente escena
+                gameManager.GuardarPuntos();
+                SceneManager.LoadScene("CuevaModoCoop");
+            }
+            else
+            {
+                // Si la bandera no está activada, muestra el aviso
+                avisoText.text = "¡Derrota a todos los enemigos!";
+                Invoke("OcultarAviso", 2f); // Oculta el aviso después de 2 segundos
+            }
         }
     }
+
+    // Método para ocultar el aviso
+    private void OcultarAviso()
+    {
+        avisoText.text = "";
+    }
 }
+
+
 
