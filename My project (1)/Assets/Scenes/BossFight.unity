@@ -7145,7 +7145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0982baf4b4a02498a07237a53fa5ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 1
+  HP: 20
   valor: 200
   gameManager: {fileID: 1735878063}
   flashDuration: 0.1
@@ -7785,7 +7785,7 @@ Tilemap:
       - {fileID: 1631950449, guid: 2fa1147a11d631445b0462be5c5d91d9, type: 3}
       - {fileID: 917996206, guid: 2fa1147a11d631445b0462be5c5d91d9, type: 3}
       - {fileID: 1008749898, guid: 2fa1147a11d631445b0462be5c5d91d9, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 0, y: 11, z: 0}
