@@ -6601,7 +6601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialCooldown: 10
   activeDuration: 5
-  interval: 21
+  interval: 16
   invocador: {fileID: 1800598353}
 --- !u!4 &1028514423
 Transform:
