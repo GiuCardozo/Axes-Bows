@@ -55,7 +55,7 @@ public class Finish : MonoBehaviour
             {
                 // Si la bandera está activada, cambia a la siguiente escena
                 gameManager.GuardarPuntos();
-                SceneManager.LoadScene("Win"); // Cambio a la escena "Win"
+                SceneManager.LoadScene("BossFight"); // Cambio a la escena "Win"
             }
             else
             {
