@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VSWin.unity
     guid: 1f03105fcbb9e8c44a6ebefde0194077
+  - enabled: 1
+    path: Assets/Scenes/BossFight.unity
+    guid: 7f39c36d17e94d0488a74ca3d1ce084a
   m_configObjects: {}
