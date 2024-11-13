@@ -7,24 +7,26 @@ public class Bandera : MonoBehaviour
     private bool banderaActivada = false;
 
     public GameManager gameManager;
-    public TextMeshProUGUI avisoText; // Referencia al TextMeshProUGUI para el aviso
+    public TextMeshProUGUI avisoText;
+    private IdiomaManager idiomaManager; // Referencia al IdiomaManager
 
     void Start()
     {
         // Asegúrate de que el aviso esté vacío al comenzar
         avisoText.text = "";
+
+        // Buscar el IdiomaManager en la escena
+        idiomaManager = FindObjectOfType<IdiomaManager>();
     }
 
     void Update()
     {
-        // Verificar si todos los enemigos han sido derrotados
         if (!banderaActivada && TodosLosEnemigosDerrotados())
         {
             ActivarBandera();
         }
     }
 
-    // Método para verificar si todos los enemigos están derrotados
     private bool TodosLosEnemigosDerrotados()
     {
         GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemy");
@@ -38,7 +40,6 @@ public class Bandera : MonoBehaviour
         return true;
     }
 
-    // Método para activar la bandera
     private void ActivarBandera()
     {
         banderaActivada = true;
@@ -46,32 +47,26 @@ public class Bandera : MonoBehaviour
         Invoke("OcultarAviso", 2f);
     }
 
-    // Detectar colisión con el jugador
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             if (banderaActivada)
             {
-                // Si la bandera está activada, cambia a la siguiente escena
                 gameManager.GuardarPuntos();
                 SceneManager.LoadScene("CuevaModoCoop");
             }
             else
             {
-                // Si la bandera no está activada, muestra el aviso
-                avisoText.text = "¡Derrota a todos los enemigos!";
-                Invoke("OcultarAviso", 2f); // Oculta el aviso después de 2 segundos
+                // Mostrar mensaje traducido cuando los enemigos no han sido derrotados
+                avisoText.text = idiomaManager.ObtenerTraduccion("avisoEntrada") ?? "¡Derrota a todos los enemigos!";
+                Invoke("OcultarAviso", 2f);
             }
         }
     }
 
-    // Método para ocultar el aviso
     private void OcultarAviso()
     {
         avisoText.text = "";
     }
 }
-
-
-

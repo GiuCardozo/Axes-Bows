@@ -4,17 +4,24 @@ using TMPro;
 
 public class IdiomaManager : MonoBehaviour
 {
-    public TextMeshProUGUI botonJugarTexto; // Referencia al texto del botón Jugar
-    public TextMeshProUGUI seleccionModoTexto; // Referencia al texto que dice "Selecciona un modo de juego"
-    public TextMeshProUGUI cooperativoTexto;   // Referencia al texto del botón Cooperativo
-    public TextMeshProUGUI versusTexto;        // Referencia al texto del botón Versus
+    public TextMeshProUGUI botonJugarTexto;
+    public TextMeshProUGUI seleccionModoTexto;
+    public TextMeshProUGUI cooperativoTexto;
+    public TextMeshProUGUI versusTexto;
+
+    // Nuevos elementos de texto para los menús de pausa y game over
+    public TextMeshProUGUI avisoEntradaTexto;
+    public TextMeshProUGUI resumeTexto;
+    public TextMeshProUGUI restartTextoPausa;
+    public TextMeshProUGUI quitTextoPausa;
+    public TextMeshProUGUI restartTextoGameOver;
+    public TextMeshProUGUI quitTextoGameOver;
 
     private Dictionary<string, Dictionary<string, string>> traducciones;
     private string idiomaActual = "es"; // Idioma por defecto
 
     void Start()
     {
-        // Recuperar el idioma guardado o establecer por defecto el español
         idiomaActual = PlayerPrefs.GetString("IdiomaSeleccionado", "es");
         InicializarTraducciones();
         ActualizarTraduccion();
@@ -27,37 +34,58 @@ public class IdiomaManager : MonoBehaviour
         // Traducciones al español
         traducciones["es"] = new Dictionary<string, string>
         {
-            { "jugar", "Jugar" }, // Añadir traducción para el botón Jugar
+            { "jugar", "Jugar" },
             { "seleccionModo", "Selecciona un modo de juego" },
             { "cooperativo", "Cooperativo" },
-            { "versus", "Modo Versus" }
+            { "versus", "Modo Versus" },
+            { "avisoEntrada", "¡Derrota a todos los enemigos!" },
+            { "resume", "Reanudar" },
+            { "restart", "Reiniciar" },
+            { "quit", "Salir" }
         };
 
         // Traducciones al inglés
         traducciones["en"] = new Dictionary<string, string>
         {
-            { "jugar", "Play" }, // Añadir traducción para el botón Jugar
+            { "jugar", "Play" },
             { "seleccionModo", "Select a game mode" },
             { "cooperativo", "Cooperative" },
-            { "versus", "Versus Mode" }
+            { "versus", "Versus Mode" },
+            { "avisoEntrada", "Defeat all enemies!" },
+            { "resume", "Resume" },
+            { "restart", "Restart" },
+            { "quit", "Quit" }
         };
 
         // Traducciones al portugués
         traducciones["pt"] = new Dictionary<string, string>
         {
-            { "jugar", "Jogar" }, // Añadir traducción para el botón Jugar
+            { "jugar", "Jogar" },
             { "seleccionModo", "Selecione um modo de jogo" },
             { "cooperativo", "Cooperativo" },
-            { "versus", "Modo Versus" }
+            { "versus", "Modo Versus" },
+            { "avisoEntrada", "Derrote todos os inimigos!" },
+            { "resume", "Retomar" },
+            { "restart", "Reiniciar" },
+            { "quit", "Sair" }
         };
     }
 
     public void CambiarIdioma(string nuevoIdioma)
     {
         idiomaActual = nuevoIdioma;
-        PlayerPrefs.SetString("IdiomaSeleccionado", nuevoIdioma); // Guardar el idioma seleccionado
-        PlayerPrefs.Save(); // Asegurarse de que se guarde la configuración
+        PlayerPrefs.SetString("IdiomaSeleccionado", nuevoIdioma);
+        PlayerPrefs.Save();
         ActualizarTraduccion();
+    }
+
+    public string ObtenerTraduccion(string clave)
+    {
+        if (traducciones.ContainsKey(idiomaActual) && traducciones[idiomaActual].ContainsKey(clave))
+        {
+            return traducciones[idiomaActual][clave];
+        }
+        return null;
     }
 
     void ActualizarTraduccion()
@@ -75,6 +103,25 @@ public class IdiomaManager : MonoBehaviour
 
             if (versusTexto != null && traducciones[idiomaActual].ContainsKey("versus"))
                 versusTexto.text = traducciones[idiomaActual]["versus"];
+
+            if (avisoEntradaTexto != null && traducciones[idiomaActual].ContainsKey("avisoEntrada"))
+                avisoEntradaTexto.text = traducciones[idiomaActual]["avisoEntrada"];
+
+            if (resumeTexto != null && traducciones[idiomaActual].ContainsKey("resume"))
+                resumeTexto.text = traducciones[idiomaActual]["resume"];
+
+            if (restartTextoPausa != null && traducciones[idiomaActual].ContainsKey("restart"))
+                restartTextoPausa.text = traducciones[idiomaActual]["restart"];
+
+            if (quitTextoPausa != null && traducciones[idiomaActual].ContainsKey("quit"))
+                quitTextoPausa.text = traducciones[idiomaActual]["quit"];
+
+            if (restartTextoGameOver != null && traducciones[idiomaActual].ContainsKey("restart"))
+                restartTextoGameOver.text = traducciones[idiomaActual]["restart"];
+
+            if (quitTextoGameOver != null && traducciones[idiomaActual].ContainsKey("quit"))
+                quitTextoGameOver.text = traducciones[idiomaActual]["quit"];
         }
     }
 }
+
