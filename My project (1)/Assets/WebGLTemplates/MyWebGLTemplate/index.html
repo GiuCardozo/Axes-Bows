@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity WebGL Build</title>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"></script>
+    <script src="firebase-auth.js"></script> <!-- Archivo personalizado -->
+
+    <!-- Estilos para el contenedor -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #202020;
+        }
+        #unity-container {
+            width: 960px;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div id="unity-container"></div>
+
+    <!-- Unity WebGL Scripts -->
+    <script src="Build/yourBuild.loader.js"></script>
+    <script>
+        // Configuración del Unity WebGL Build
+        var buildUrl = "Build";
+        var config = {
+            dataUrl: buildUrl + "/yourBuild.data",
+            frameworkUrl: buildUrl + "/yourBuild.framework.js",
+            codeUrl: buildUrl + "/yourBuild.wasm",
+            streamingAssetsUrl: "StreamingAssets",
+            companyName: "YourCompany",
+            productName: "YourProduct",
+            productVersion: "1.0",
+        };
+
+        // Crear instancia de Unity
+        createUnityInstance(document.querySelector("#unity-container"), config, (progress) => {
+            console.log(`Cargando: ${(progress * 100).toFixed(2)}%`);
+        }).then((unityInstance) => {
+            console.log("Unity cargado.");
+        }).catch((message) => {
+            alert(message);
+        });
+    </script>
+</body>
+</html>
