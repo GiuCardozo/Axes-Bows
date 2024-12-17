@@ -3,7 +3,6 @@ using Firebase.Auth;
 using Firebase.Extensions;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;  // Asegúrate de importar SceneManagement
 
 public class GoogleLogin : MonoBehaviour
 {
@@ -25,7 +24,7 @@ public class GoogleLogin : MonoBehaviour
     {
 #if UNITY_WEBGL && !UNITY_EDITOR
             // Llamamos a la función JavaScript definida en firebase-auth.js
-            Application.ExternalCall("googleSignIn");
+            Application.ExternalEval("googleSignIn()");
 #else
         statusText.text = "Google Sign-In is only available in WebGL build!";
         Debug.LogWarning("Google Sign-In is only available in WebGL build!");
@@ -45,9 +44,6 @@ public class GoogleLogin : MonoBehaviour
                 user = authTask.Result;
                 statusText.text = "Login successful! Welcome, " + user.DisplayName;
                 Debug.Log("User logged in: " + user.Email);
-
-                // Cargar la siguiente escena después de iniciar sesión exitosamente
-                SceneManager.LoadScene("MenuInicial");  // Reemplaza "NextSceneName" con el nombre de tu escena
             }
             else
             {
