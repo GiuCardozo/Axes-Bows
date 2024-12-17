@@ -1,0 +1,10 @@
+window.googleSignIn = function() {
+    var provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+        var user = result.user;
+        console.log("Signed in as: " + user.displayName);
+        // Aquí puedes devolver los datos al Unity C# script si lo necesitas.
+    }).catch(function(error) {
+        console.error("Error signing in: " + error.message);
+    });
+}

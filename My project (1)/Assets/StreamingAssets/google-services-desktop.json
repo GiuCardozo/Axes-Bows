@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "437456960654",
+    "project_id": "axes-and-bows",
+    "storage_bucket": "axes-and-bows.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:437456960654:android:e88742a76b646784861ddf",
+        "android_client_info": {
+          "package_name": "com.axes.web"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "437456960654-7a7c0a5c9plk8hb6j19j52o3gb7r4a11.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCE4ou4uKYbwQvu9n0m0ClCRliNQI9zezQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "437456960654-7a7c0a5c9plk8hb6j19j52o3gb7r4a11.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
